@@ -8,13 +8,13 @@ interface VisualCrossingCurrentConditions {
     feelslike: number;
     humidity: number;
     dew: number;
-    precip: number;
-    precipprob: number;
-    precipcover: number;
+    precip: number | null;
+    precipprob: number | null;
+    precipcover?: number | null;
     preciptype: string | null;
     snow: number;
     snowdepth: number | null;
-    windgust: number;
+    windgust: number | null;
     windspeed: number;
     winddir: number;
     pressure: number;
@@ -23,7 +23,7 @@ interface VisualCrossingCurrentConditions {
     solarradiation: number;
     solarenergy: number;
     uvindex: number;
-    severerisk: number;
+    severerisk?: number | null;
     conditions: string;
     icon: string;
     sunrise: string;
@@ -47,7 +47,7 @@ interface VisualCrossingDay {
     precip: number;
     precipprob: number;
     precipcover: number;
-    preciptype: string | null;
+    preciptype: string | string[] | null;
     snow: number;
     snowdepth: number | null;
     windgust: number;
@@ -67,6 +67,9 @@ interface VisualCrossingDay {
     sunset: string;
     sunsetEpoch: number;
     moonphase: number;
+    hours?: unknown[];
+    source: unknown;
+    stations: unknown;
 }
 
 interface VisualCrossingResponse {
@@ -252,4 +255,11 @@ export async function getWeatherGivenCity(
         console.error('Error fetching weather data:', error);
         throw error;
     }
+}
+
+import weatherData from './tempResponse.json';
+
+export function tempWeatherReport() {
+    const response: VisualCrossingResponse = weatherData;
+    return parseWeatherData(response);
 }
