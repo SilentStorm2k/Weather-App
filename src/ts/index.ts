@@ -1,6 +1,11 @@
 import '../css/styles.css';
 import '../css/reset.css';
-import { getWeatherGivenCity, getWeatherGivenLocation } from './weatherApi';
+import {
+    getWeatherGivenCity,
+    getWeatherGivenLocation,
+    tempWeatherReport,
+} from './weatherApi';
+import { render } from './renderDetails';
 
 console.log('hello world');
 
@@ -41,3 +46,8 @@ search?.addEventListener('click', (e) => {
 function handleSubmit(ev: Event) {
     throw new Error('Function not implemented.');
 }
+
+render();
+// getWeatherGivenCity('Chennai');
+
+console.log(tempWeatherReport());
