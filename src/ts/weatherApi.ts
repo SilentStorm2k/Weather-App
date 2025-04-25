@@ -84,7 +84,7 @@ interface VisualCrossingResponse {
     currentConditions: VisualCrossingCurrentConditions;
 }
 
-interface WeatherReportDay {
+export interface WeatherReportDay {
     temperature: number;
     feelsLike: number;
     tempMax: number;
@@ -96,7 +96,7 @@ interface WeatherReportDay {
     sunset: string;
 }
 
-interface WeatherReport {
+export interface WeatherReport {
     location: string;
     description: string;
     days: WeatherReportDay[];
