@@ -23,3 +23,21 @@ function getLocation() {
 }
 
 // getLocation();
+
+const input = document.querySelector('input');
+input?.addEventListener('keypress', (e) => {
+    if (e.key == 'Enter') {
+        e.preventDefault();
+        handleSubmit(e as Event);
+    }
+});
+
+const search = document.querySelector('svg');
+search?.addEventListener('click', (e) => {
+    e.preventDefault();
+    handleSubmit(e);
+});
+
+function handleSubmit(ev: Event) {
+    throw new Error('Function not implemented.');
+}
