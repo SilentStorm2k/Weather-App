@@ -81,12 +81,10 @@ export async function render(
 ) {
     let weatherDetails: WeatherReport | undefined;
     try {
-        // if (geolocation)
-        //     weatherDetails = await getWeatherGivenLocation(geolocation, unit);
-        // else if (city) weatherDetails = await getWeatherGivenCity(city, unit);
-        // else throw new Error('Must provide city or provide location');
-        weatherDetails = tempWeatherReport();
-        console.log('WORksS', weatherDetails);
+        if (geolocation)
+            weatherDetails = await getWeatherGivenLocation(geolocation, unit);
+        else if (city) weatherDetails = await getWeatherGivenCity(city, unit);
+        else throw new Error('Must provide city or provide location');
 
         if (weatherDetails) {
             const unitString = unit == 'us' ? '°F' : '°C';
@@ -108,6 +106,14 @@ export async function render(
         throw error;
     }
 }
+
+/**
+ * Renders the current weather conditions to the UI.
+ *
+ * @param weatherDetails: The weather data object.
+ * @param unit:         The unit of temperature ('°F' or '°C').
+ * @throws Error if the weatherContainer or its children are not found.
+ */
 function renderCurrentConditions(weatherDetails: WeatherReport, unit: string) {
     const currentConditionDiv =
         weatherContainer?.querySelector('.currentConditions');
@@ -136,6 +142,13 @@ function renderCurrentConditions(weatherDetails: WeatherReport, unit: string) {
     minTempDiv.innerText = weatherDetails.tempMin.toString() + unit;
 }
 
+/**
+ * Renders the "feels like" temperature to the UI.
+ *
+ * @param weatherDetails: The weather data object.
+ * @param unit:         The unit of temperature ('°F' or '°C').
+ * @throws Error if the weatherContainer or feelsLike children are not found.
+ */
 function renderFeelsLike(weatherDetails: WeatherReport, unit: string) {
     const feelsLikeDiv = weatherContainer?.querySelector('.feelsLike');
     const mainText = feelsLikeDiv?.children[0] as HTMLDivElement;
@@ -145,6 +158,12 @@ function renderFeelsLike(weatherDetails: WeatherReport, unit: string) {
     temp.innerText = weatherDetails.feelsLike + unit;
 }
 
+/**
+ * Renders the humidity information to the UI.
+ *
+ * @param weatherDetails: The weather data object.
+ * @throws Error if the weatherContainer or humidity children are not found.
+ */
 function renderHumidity(weatherDetails: WeatherReport) {
     const humidityDiv = weatherContainer?.querySelector('.humidity');
     const mainText = humidityDiv?.children[0] as HTMLDivElement;
@@ -159,6 +178,12 @@ function renderHumidity(weatherDetails: WeatherReport) {
     humidityValue.innerText = weatherDetails.humidity + '%';
 }
 
+/**
+ * Renders the weather description to the UI.
+ *
+ * @param weatherDetails: The weather data object.
+ * @throws Error if the weatherContainer or description children are not found.
+ */
 function renderDescription(weatherDetails: WeatherReport) {
     const descriptionDiv = weatherContainer?.querySelector('.description');
     const descriptionIcon = descriptionDiv?.children[0] as HTMLImageElement;
@@ -168,6 +193,13 @@ function renderDescription(weatherDetails: WeatherReport) {
     mainText.innerText = weatherDetails.description;
 }
 
+/**
+ * Renders the future forecast to the UI.
+ *
+ * @param weatherDetails: The weather data object.
+ * @param unit:         The unit of temperature ('°F' or '°C').
+ * @throws Error if the weatherContainer or futureForecast container is not found.
+ */
 function renderFutureForecast(weatherDetails: WeatherReport, unit: string) {
     const futureForecastDiv = weatherContainer?.querySelector(
         '.futureForecast',
@@ -201,9 +233,13 @@ function renderFutureForecast(weatherDetails: WeatherReport, unit: string) {
         dayDiv.appendChild(tempContainer);
         futureForecastDiv.appendChild(dayDiv);
     }
-    throw new Error('Function not implemented.');
 }
 
+/**
+ * Cleans all the children of a given HTML element.
+ *
+ * @param element: The HTML element to clean.
+ */
 function cleanDiv(element: HTMLElement) {
     while (element.firstChild) element.removeChild(element.firstChild);
 }

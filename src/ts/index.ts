@@ -7,12 +7,6 @@ import {
 } from './weatherApi';
 import { render } from './renderDetails';
 
-console.log('hello world');
-
-// getWeatherGivenCity('chennai')
-//     .then((weather) => console.log(weather))
-//     .catch((err) => console.log(err));
-
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -26,8 +20,6 @@ function getLocation() {
         console.log('Geolocation not supported in your browser');
     }
 }
-
-// getLocation();
 
 const input = document.querySelector('input');
 input?.addEventListener('keypress', (e) => {
@@ -44,10 +36,12 @@ search?.addEventListener('click', (e) => {
 });
 
 function handleSubmit(ev: Event) {
-    throw new Error('Function not implemented.');
+    if (input) {
+        const cityValue = input.value == '' ? 'New York' : input.value;
+        render('us', cityValue);
+    }
 }
 
-render();
-// getWeatherGivenCity('Chennai');
-
-console.log(tempWeatherReport());
+window.onload = () => {
+    render('us', 'New York');
+};
