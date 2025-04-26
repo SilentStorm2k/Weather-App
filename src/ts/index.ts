@@ -21,6 +21,10 @@ function getLocation() {
     }
 }
 
+let cityValue = 'New York';
+let unit = 'metric';
+let geoLocation: GeolocationPosition | undefined = undefined;
+
 const input = document.querySelector('input');
 input?.addEventListener('keypress', (e) => {
     if (e.key == 'Enter') {
@@ -37,12 +41,33 @@ search?.addEventListener('click', (e) => {
 
 function handleSubmit(ev: Event) {
     if (input) {
-        const cityValue = input.value == '' ? 'New York' : input.value;
-        render('us', cityValue);
+        cityValue = input.value == '' ? cityValue : input.value;
+        render(unit, cityValue);
     }
 }
 
 window.onload = () => {
-    render('metric', undefined, undefined, tempWeatherReport());
-    // render('us', 'New York');
+    // render('metric', undefined, undefined, tempWeatherReport());
+    render(unit, cityValue);
 };
+
+const unitToggle = document.getElementById('unitToggle') as HTMLInputElement;
+
+unitToggle.addEventListener('change', () => {
+    if (unitToggle.checked) unit = 'metric';
+    else unit = 'us';
+    render(unit, cityValue);
+});
+
+const useLocation = document.getElementById('location') as HTMLButtonElement;
+
+useLocation.addEventListener('click', (e) => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            geoLocation = position;
+            render(unit, undefined, position);
+        });
+    } else {
+        console.error('Location permission not available');
+    }
+});
