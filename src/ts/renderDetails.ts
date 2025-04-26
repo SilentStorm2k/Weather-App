@@ -78,10 +78,12 @@ export async function render(
     unit: string = 'metric',
     city?: string,
     geolocation?: GeolocationPosition,
+    userGivenWeatherDetails?: WeatherReport,
 ) {
     let weatherDetails: WeatherReport | undefined;
     try {
-        if (geolocation)
+        if (userGivenWeatherDetails) weatherDetails = userGivenWeatherDetails;
+        else if (geolocation)
             weatherDetails = await getWeatherGivenLocation(geolocation, unit);
         else if (city) weatherDetails = await getWeatherGivenCity(city, unit);
         else throw new Error('Must provide city or provide location');

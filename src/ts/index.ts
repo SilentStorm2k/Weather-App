@@ -43,5 +43,6 @@ function handleSubmit(ev: Event) {
 }
 
 window.onload = () => {
-    render('us', 'New York');
+    render('metric', undefined, undefined, tempWeatherReport());
+    // render('us', 'New York');
 };
