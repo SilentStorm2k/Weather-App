@@ -22,7 +22,8 @@ interface GeocodingAPIResponse {
     };
 }
 
-const GEOCODIFY_API_KEY = process.env.GEOCODIFY_API_KEY;
+const GEOCODIFY_API_KEY =
+    process.env.GEOCODIFY_API_KEY ?? 'nl6QEQILFTgO6LwZUIlqT5zBOtvhSOic';
 
 /**
  * Fetches an Address of AddressType

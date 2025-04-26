@@ -118,7 +118,8 @@ export interface WeatherReport {
 }
 
 const acceptableUnits = new Set(['metric', 'us']);
-const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
+const WEATHER_API_KEY =
+    process.env.WEATHER_API_KEY ?? 'LUBKBGRTTVAZCP4DU8UHDT2NU';
 
 // --- Helper Functions ---
 
