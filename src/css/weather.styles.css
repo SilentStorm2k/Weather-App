@@ -57,3 +57,30 @@
     aspect-ratio: 1/1;
     object-fit: cover;
 }
+
+.futureForecast {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    overflow: auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card > :nth-child(1) {
+    flex: 1;
+}
+.card > :nth-child(2) {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

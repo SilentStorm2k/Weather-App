@@ -88,6 +88,8 @@ interface VisualCrossingResponse {
 }
 
 export interface WeatherReportDay {
+    date: string;
+    temp: number;
     temperature: number;
     feelsLike: number;
     tempMax: number;
@@ -127,6 +129,8 @@ const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
  */
 function parseDay(day: VisualCrossingDay): WeatherReportDay {
     return {
+        date: day.datetime,
+        temp: day.temp,
         temperature: day.temp,
         feelsLike: day.feelslike,
         tempMax: day.tempmax,
