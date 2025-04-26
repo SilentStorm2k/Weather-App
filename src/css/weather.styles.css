@@ -42,3 +42,18 @@
     align-items: center;
     justify-content: center;
 }
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    gap: 1rem;
+    padding: 12px;
+}
+
+.description img {
+    height: 60%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}

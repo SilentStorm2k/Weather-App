@@ -28,6 +28,7 @@ import thundershowersnight from '../assets/visualcrossing WeatherIcons main PNG-
 import thunder from '../assets/visualcrossing WeatherIcons main PNG-3rd Set - Color/thunder.png';
 import wind from '../assets/visualcrossing WeatherIcons main PNG-3rd Set - Color/wind.png';
 import humidity from '../assets/humidity.png';
+import info from '../assets/information.png';
 
 const weatherContainer = document.querySelector('.weatherReport');
 
@@ -148,7 +149,12 @@ function renderHumidity(weatherDetails: WeatherReport) {
 }
 
 function renderDescription(weatherDetails: WeatherReport) {
-    throw new Error('Function not implemented.');
+    const descriptionDiv = weatherContainer?.querySelector('.description');
+    const descriptionIcon = descriptionDiv?.children[0] as HTMLImageElement;
+    const mainText = descriptionDiv?.children[1] as HTMLDivElement;
+
+    descriptionIcon.src = info;
+    mainText.innerText = weatherDetails.description;
 }
 
 function renderFutureForecast(weatherDetails: WeatherReport, unit: string) {
