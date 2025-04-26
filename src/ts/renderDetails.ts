@@ -209,7 +209,7 @@ function renderFutureForecast(weatherDetails: WeatherReport, unit: string) {
     cleanDiv(futureForecastDiv);
     for (const dayData of weatherDetails.days) {
         const curDate = new Date(dayData.date);
-        if (isToday(curDate)) continue;
+        if (isToday(curDate) || dayData == weatherDetails.days[0]) continue;
 
         const dayDiv = document.createElement('div');
         dayDiv.classList.add('card');
