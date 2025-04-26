@@ -200,7 +200,7 @@ Project Link: [https://github.com/SilentStorm2k/weather-app](https://github.com/
 
 ## Acknowledgments
 
-- []()
+- [<a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">Humidity icons created by adriansyah - Flaticon</a>]()
 - []()
 - []()
 

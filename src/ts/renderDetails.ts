@@ -27,6 +27,7 @@ import thundershowersday from '../assets/visualcrossing WeatherIcons main PNG-3r
 import thundershowersnight from '../assets/visualcrossing WeatherIcons main PNG-3rd Set - Color/thunder-showers-night.png';
 import thunder from '../assets/visualcrossing WeatherIcons main PNG-3rd Set - Color/thunder.png';
 import wind from '../assets/visualcrossing WeatherIcons main PNG-3rd Set - Color/wind.png';
+import humidity from '../assets/humidity.png';
 
 const weatherContainer = document.querySelector('.weatherReport');
 
@@ -124,11 +125,26 @@ function renderCurrentConditions(weatherDetails: WeatherReport, unit: string) {
 }
 
 function renderFeelsLike(weatherDetails: WeatherReport, unit: string) {
-    throw new Error('Function not implemented.');
+    const feelsLikeDiv = weatherContainer?.querySelector('.feelsLike');
+    const mainText = feelsLikeDiv?.children[0] as HTMLDivElement;
+    const temp = feelsLikeDiv?.children[1] as HTMLDivElement;
+
+    mainText.innerText = 'Feels like';
+    temp.innerText = weatherDetails.feelsLike + unit;
 }
 
 function renderHumidity(weatherDetails: WeatherReport) {
-    throw new Error('Function not implemented.');
+    const humidityDiv = weatherContainer?.querySelector('.humidity');
+    const mainText = humidityDiv?.children[0] as HTMLDivElement;
+    const humidityContainer = humidityDiv?.children[1] as HTMLDivElement;
+
+    mainText.innerText = 'Humidity';
+
+    const humidityIcon = humidityContainer.children[0] as HTMLImageElement;
+    const humidityValue = humidityContainer.children[1] as HTMLDivElement;
+
+    humidityIcon.src = humidity;
+    humidityValue.innerText = weatherDetails.humidity + '%';
 }
 
 function renderDescription(weatherDetails: WeatherReport) {
