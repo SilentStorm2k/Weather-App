@@ -11,23 +11,13 @@
 
 .currentConditions > *,
 .feelsLike > *,
-.humidity > * {
+.humidity > *,
+.description div {
     flex: 1;
-}
-
-.currentConditions > :nth-child(1) {
-    border: 3px solid red;
-}
-
-.currentConditions > :nth-child(2) {
-    border: 3px solid blue;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.currentConditions > :nth-child(3) {
-    border: 3px solid green;
+    gap: 12px;
 }
 
 .currentConditions > :nth-child(2) > :nth-child(3) {
@@ -73,6 +63,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 6px;
 }
 
 .card > :nth-child(1) {
