@@ -36,5 +36,8 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/SilentStorm2k/"
+    },
+    "dependencies": {
+        "date-fns": "^4.1.0"
     }
 }
