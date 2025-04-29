@@ -215,7 +215,7 @@ export async function getWeatherGivenLocation(
 
         const responseJSON: VisualCrossingResponse = await response.json(); // Explicit type
         const parsedWeatherReport = parseWeatherData(responseJSON);
-        parsedWeatherReport.description =
+        parsedWeatherReport.location =
             await getAddressFromLocation(geolocation);
 
         return parsedWeatherReport;
