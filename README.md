@@ -42,19 +42,19 @@ SOFTWARE. -->
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/SilentStorm2k/weather-app">
+  <!-- <a href="https://github.com/SilentStorm2k/weather-app">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Weather Application</h3>
 
   <p align="center">
-    project_description
+    A simple web app to see basic weather details 
     <br />
     <a href="https://github.com/SilentStorm2k/weather-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://SilentStorm2k.github.io/weather-app">View Demo</a>
+    <a href="https://SilentStorm2k.github.io/Weather-App">View Demo</a>
     ·
     <a href="https://github.com/SilentStorm2k/weather-app/issues">Report Bug</a>
     ·
@@ -72,14 +72,6 @@ SOFTWARE. -->
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -92,9 +84,7 @@ SOFTWARE. -->
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `SilentStorm2k`, `weather-app`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+This is a simple weather showing webapp that can show you the weather. You can change the units between Celcius and Farenheit. I have incorporated 3 different web api's into this program including VirtualCrossings weather API, geoCodify's location API, and the browser native location API. Using these 3 APIs the webapp can give you weather location for your current location, or any location you desire.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,58 +96,11 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-    ```sh
-    npm install npm@latest -g
-    ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-    ```sh
-    git clone https://github.com/SilentStorm2k/weather-app.git
-    ```
-3. Install NPM packages
-    ```sh
-    npm install
-    ```
-4. Enter your API in `config.js`
-    ```js
-    const API_KEY = 'ENTER YOUR API';
-    ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- ROADMAP -->
 
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+Nothing planned so far. May revisit later on in the future
 
 See the [open issues](https://github.com/SilentStorm2k/weather-app/issues) for a full list of proposed features (and known issues).
 
