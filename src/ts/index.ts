@@ -4,7 +4,7 @@ import { render } from './renderDetails';
 import { tempWeatherReport } from './weatherApi';
 
 let cityValue = 'New York';
-let unit = 'metric';
+let unit = 'us';
 let geoLocation: GeolocationPosition | undefined = undefined;
 const loadingIcon = document.querySelector('.loading');
 const searchIcon = document.querySelector('.search');
@@ -124,6 +124,5 @@ function stopScroll() {
 }
 
 window.onload = () => {
-    render('metric', undefined, undefined, tempWeatherReport());
-    // handleDefaultRender(unit, cityValue);
+    handleDefaultRender(unit, cityValue);
 };
