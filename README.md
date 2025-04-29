@@ -200,9 +200,11 @@ Project Link: [https://github.com/SilentStorm2k/weather-app](https://github.com/
 
 ## Acknowledgments
 
-- [<a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">Humidity icons created by adriansyah - Flaticon</a>]()
+- [<a target="_blank" href="https://icons8.com/icon/3432/wet">Humidity</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>]()
+- [<a target="_blank" href="https://icons8.com/icon/3723/location">Location</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>]()
 - [<a href="https://www.flaticon.com/free-icons/information" title="information icons">Information icons created by Anggara - Flaticon</a>]()
-- [<a href="https://www.flaticon.com/free-icons/pin" title="pin icons">Pin icons created by Freepik - Flaticon</a>]()
+- [<a target="_blank" href="https://icons8.com/icon/41189/down-arrow">Down Arrow</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>]()
+- [<a target="_blank" href="https://icons8.com/icon/39966/up-arrow">Up Arrow</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
