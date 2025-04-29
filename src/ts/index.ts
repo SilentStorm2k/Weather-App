@@ -1,6 +1,7 @@
 import '../css/styles.css';
 import '../css/reset.css';
 import { render } from './renderDetails';
+import { tempWeatherReport } from './weatherApi';
 
 let cityValue = 'New York';
 let unit = 'metric';
@@ -10,6 +11,27 @@ const searchIcon = document.querySelector('.search');
 const input = document.querySelector('input');
 const unitToggle = document.getElementById('unitToggle') as HTMLInputElement;
 const useLocation = document.getElementById('location') as HTMLButtonElement;
+const toggleNavButton = document.getElementById(
+    'nav-toggle',
+) as HTMLButtonElement;
+const futureForecast = document.querySelector('.futureForecast') as HTMLElement;
+let scrollerId = startScroll();
+stopScroll();
+
+futureForecast.addEventListener('mouseenter', () => {
+    stopScroll();
+});
+
+futureForecast.addEventListener('mouseleave', () => {
+    scrollerId = startScroll();
+});
+
+futureForecast.addEventListener('wheel', (event) => {
+    event.preventDefault();
+    futureForecast.scrollLeft += event.deltaY;
+});
+
+toggleNavButton.addEventListener('click', toggleNav);
 
 input?.addEventListener('keypress', (e) => {
     if (e.key == 'Enter') {
@@ -64,7 +86,44 @@ async function handleDefaultRender(
     }
 }
 
+function toggleNav(e: MouseEvent) {
+    const state = document.body.dataset.nav;
+    const text = toggleNavButton.querySelector('span') as HTMLSpanElement;
+    if (state === 'false') {
+        document.body.dataset.nav = 'true';
+        text.innerText = 'Close';
+
+        scrollerId = startScroll();
+    } else {
+        document.body.dataset.nav = 'false';
+        text.innerText = 'Forecast';
+        stopScroll();
+        futureForecast.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+}
+
+function startScroll() {
+    let id = setInterval(function () {
+        futureForecast.scrollBy(3, 0);
+        if (
+            futureForecast.scrollLeft + futureForecast.offsetWidth >=
+            futureForecast.scrollWidth
+        ) {
+            stopScroll();
+            futureForecast.scrollTo({ left: 0, behavior: 'smooth' });
+            setTimeout(() => {
+                scrollerId = startScroll();
+            }, 1000);
+        }
+    }, 30);
+    return id;
+}
+
+function stopScroll() {
+    clearInterval(scrollerId);
+}
+
 window.onload = () => {
-    // render('metric', undefined, undefined, tempWeatherReport());
-    handleDefaultRender(unit, cityValue);
+    render('metric', undefined, undefined, tempWeatherReport());
+    // handleDefaultRender(unit, cityValue);
 };
